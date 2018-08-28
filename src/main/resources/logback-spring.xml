@@ -23,7 +23,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
             <fileNamePattern>
-                E:/Code/Java/Projects/mysite/log/info.%d.log
+                /log/info.%d.log
             </fileNamePattern>
         </rollingPolicy>
     </appender>
@@ -41,7 +41,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
             <fileNamePattern>
-                E:/Code/Java/Projects/mysite/log/error.%d.log
+                /log/error.%d.log
             </fileNamePattern>
         </rollingPolicy>
     </appender>

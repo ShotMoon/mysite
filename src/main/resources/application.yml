@@ -8,3 +8,19 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+#MD5盐值
+password:
+  salt: shotmoonsdafaqj23ou89ZXcj@#$@#$#@KJdjklj;D../dSF.
+#Redis Config
+redis:
+  ip: 127.0.0.1
+  port: 6379
+  max:
+    total: 20
+    idle: 10
+  min:
+    idle: 2
+  test:
+    borrow: true
+    return: false
+

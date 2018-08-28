@@ -1,5 +1,6 @@
 package com.shotmoon.mysite.service;
 
+import com.shotmoon.mysite.common.ServerResponse;
 import com.shotmoon.mysite.domain.User;
 
 /**
@@ -7,5 +8,7 @@ import com.shotmoon.mysite.domain.User;
  */
 public interface UserService {
 
-    void register(User user);
+    ServerResponse<String> register(User user);
+
+    ServerResponse<User> login(String username, String password);
 }
