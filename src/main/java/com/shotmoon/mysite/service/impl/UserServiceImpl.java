@@ -6,6 +6,7 @@ import com.shotmoon.mysite.repository.UserRepository;
 import com.shotmoon.mysite.service.UserService;
 import com.shotmoon.mysite.utils.MD5Util;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,5 +65,22 @@ public class UserServiceImpl implements UserService{
 
         return ServerResponse.createBySuccessMessage("校验成功");
 
+    }
+
+    @Override
+    public ServerResponse<User> updateUserInfo(User user) {
+        int resultCount = userRepository.findByEmailAndId(user.getEmail(), user.getId());
+        if(resultCount > 0){
+            return ServerResponse.createByErrorMessage("email已存在,请更换email再尝试更新");
+        }
+
+        User updateUser = new User();
+        BeanUtils.copyProperties(user, updateUser);
+
+        User resultUser = userRepository.save(updateUser);
+        if(resultUser != null){
+            return ServerResponse.createBySuccess("更新个人信息成功",updateUser);
+        }
+        return ServerResponse.createByErrorMessage("更新个人信息失败");
     }
 }

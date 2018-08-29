@@ -11,4 +11,6 @@ public interface UserService {
     ServerResponse<String> register(User user);
 
     ServerResponse<User> login(String username, String password);
+
+    ServerResponse<User> updateUserInfo(User user);
 }
