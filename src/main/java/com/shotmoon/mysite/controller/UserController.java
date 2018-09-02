@@ -83,7 +83,9 @@ public class UserController {
         }
         user.setId(currentUser.getId());
         user.setUsername(currentUser.getUsername());
+        user.setPassword(currentUser.getPassword());
 
+        //TODO password
         ServerResponse<User> response = userService.updateUserInfo(user);
         if (response.isSuccess()) {
             response.getData().setUsername(currentUser.getUsername());
@@ -139,8 +141,8 @@ public class UserController {
     }
 
     @GetMapping("/cookie")
-    public void getCookie(HttpServletRequest httpServletRequest) {
-        CookieUtil.readLoginToken(httpServletRequest);
+    public String getCookie(HttpServletRequest httpServletRequest) {
+        return CookieUtil.readLoginToken(httpServletRequest);
 
     }
 }

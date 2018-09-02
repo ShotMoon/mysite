@@ -5,13 +5,16 @@ import com.shotmoon.mysite.common.ServerResponse;
 import com.shotmoon.mysite.domain.User;
 import com.shotmoon.mysite.repository.UserRepository;
 import com.shotmoon.mysite.service.UserService;
+import com.shotmoon.mysite.utils.CookieUtil;
 import com.shotmoon.mysite.utils.MD5Util;
 import com.shotmoon.mysite.utils.RedisPoolUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
 /**

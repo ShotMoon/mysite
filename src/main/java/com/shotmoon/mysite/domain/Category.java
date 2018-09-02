@@ -8,7 +8,6 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -22,6 +21,9 @@ public class Category {
     private Integer id;
 
     private String name;
+
+    //TODO 观望
+    private Integer articleId;
 
     private Integer userId;
 }

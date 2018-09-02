@@ -32,6 +32,4 @@ public class Article {
 
     private Integer userId;
 
-
-
 }
