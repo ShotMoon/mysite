@@ -8,5 +8,8 @@ import com.shotmoon.mysite.domain.Comment;
  */
 public interface CommentService {
 
-    ServerResponse<String> addComment(Comment comment);
+    ServerResponse<Comment> addOrUpdateComment(Comment comment);
+
+    ServerResponse<String> delteComment(int commentId);
+
 }
