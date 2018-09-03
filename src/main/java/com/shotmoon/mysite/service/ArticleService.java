@@ -8,11 +8,11 @@ import com.shotmoon.mysite.domain.Article;
  */
 public interface ArticleService {
 
-    public ServerResponse<String> addArticle(Article article);
+    ServerResponse<String> addArticle(Article article);
 
-    public ServerResponse<Article> getArticle(Integer articleId);
+    ServerResponse<Article> getArticle(Integer articleId);
 
-    public ServerResponse<String> updateArticle(String title, String content, int categoryId, int articlrId);
+    ServerResponse<String> updateArticle(String title, String content, int categoryId, int articlrId);
 
-    public ServerResponse<String> deleteArticle(int articleId);
+    ServerResponse<String> deleteArticle(int articleId);
 }
