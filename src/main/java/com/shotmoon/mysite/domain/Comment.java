@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -26,4 +27,7 @@ public class Comment {
 
     private String content;
 
+    private Date createTime;
+
+    private Date updateTime;
 }

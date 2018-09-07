@@ -70,7 +70,8 @@ public class UserController {
     }
 
     @PutMapping
-    public ServerResponse<User> updateUserInfo(HttpServletRequest httpServletRequest, @RequestBody User user) {
+    public ServerResponse<User> updateUserInfo(HttpServletRequest httpServletRequest,
+                                               @RequestBody User user) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         if (StringUtils.isEmpty(loginToken)) {
             return ServerResponse.createByErrorMessage("用户未登录");

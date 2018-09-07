@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -31,5 +32,9 @@ public class Article {
     private Integer likes;
 
     private Integer userId;
+
+    private Date createTime;
+
+    private Date updateTime;
 
 }

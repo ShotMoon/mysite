@@ -43,4 +43,9 @@ public class CommentController {
 
         return commentService.delteComment(commentId);
     }
+
+    @GetMapping("/all")
+    public ServerResponse getArticleList(int page, int size, int sortCode) {
+        return commentService.getCommentList(page, size, sortCode);
+    }
 }

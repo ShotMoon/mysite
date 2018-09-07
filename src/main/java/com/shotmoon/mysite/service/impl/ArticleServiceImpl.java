@@ -2,10 +2,15 @@ package com.shotmoon.mysite.service.impl;
 
 import com.shotmoon.mysite.common.ServerResponse;
 import com.shotmoon.mysite.domain.Article;
+import com.shotmoon.mysite.enums.SortEnum;
 import com.shotmoon.mysite.repository.ArticleRepository;
 import com.shotmoon.mysite.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -57,5 +62,16 @@ public class ArticleServiceImpl implements ArticleService {
             return ServerResponse.createByErrorMessage("删除失败");
         }
         return ServerResponse.createBySuccessMessage("删除成功");
+    }
+
+    @Override
+    public ServerResponse<Page> getArticleList(int page, int size, int sortCode) {
+        Sort sort = SortEnum.ASC.getCode() == sortCode ?
+                new Sort(Sort.Direction.ASC, "createTime") :
+                new Sort(Sort.Direction.DESC, "createTime");
+        Pageable pageable = new PageRequest(page, size, sort);
+
+        Page<Article> articles = articleRepository.findAll(pageable);
+        return ServerResponse.createBySuccess("获取成功", articles);
     }
 }
